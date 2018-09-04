@@ -1,8 +1,8 @@
 #!/usr/bin/env bash
 
-files=$(ls | wc -w)
+files=$(ls -p | grep -v / | wc -w)
 
-echo "How many files are in this folder? Take a guess and find out."
+echo -e "How many $(tput bold)files$(tput sgr0) are in this directory? Take a guess and find out."
 
 while [[ ! $finished ]]
 do
@@ -17,4 +17,4 @@ do
 done
 
 read -s -r -n 1 -p "$files is correct! Press any key to quit."
-echo -e ""
+echo -e "$(tput sgr0)"
